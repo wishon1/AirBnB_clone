@@ -3,6 +3,7 @@
 import io
 import sys
 import unittest
+from datetime import datetime
 from models.base_model import BaseModel
 
 
@@ -37,3 +38,13 @@ class Test_Base_model_class(unittest.TestCase):
         self.assertIn("name", d)
         self.assertIn("my_number", d)
         self.assertIn("__class__", d)
+
+    def test_04_baseModel(self):
+        """ test attributes of basemodel after creation """
+        my_model = BaseModel()
+        my_model_json = my_model.to_dict()
+        my_new_model = BaseModel(**my_model_json)
+
+        self.assertIsNotNone(my_new_model.id)
+        self.assertIsInstance(my_new_model.created_at, datetime)
+        self.assertIsInstance(my_new_model.updated_at, datetime)
