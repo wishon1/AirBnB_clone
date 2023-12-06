@@ -3,7 +3,7 @@
 import io
 import sys
 import unittest
-from datetime import datetime
+import datetime
 from models.base_model import BaseModel
 
 
@@ -46,5 +46,5 @@ class Test_Base_model_class(unittest.TestCase):
         my_new_model = BaseModel(**my_model_json)
 
         self.assertIsNotNone(my_new_model.id)
-        self.assertIsInstance(my_new_model.created_at, datetime)
-        self.assertIsInstance(my_new_model.updated_at, datetime)
+        self.assertIsInstance(my_new_model.created_at, datetime.datetime)
+        self.assertIsInstance(my_new_model.updated_at, datetime.datetime)
