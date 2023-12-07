@@ -1,5 +1,6 @@
 #/usr/bin/python3
 """ module of the base class of Abhnb """
+import models
 import uuid
 from datetime import datetime
 
@@ -11,10 +12,6 @@ class BaseModel():
         generate an id for each object and also 
         generate the time which each item will be created at 
         """
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
-        
         # check if kwargs is not emty
         if kwargs:
             for key, value in kwargs.items():
@@ -32,6 +29,7 @@ class BaseModel():
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         """ return the object in a specified format """
@@ -43,14 +41,15 @@ class BaseModel():
         updated_at with the current datetime
         """
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """ 
         returns a dictionary containing all keys/values of 
         __dict__ of the instance
         """
-        self.created_at = self.created_at.isoformat()
-        self.updated_at = self.updated_at.isoformat()
-        dict = self.__dict__
+        dict = self.__dict__.copy()
+        dict["created_at"] = dict["created_at"].isoformat()
+        dict["updated_at"] = dict["updated_at"].isoformat()
         dict["__class__"] = __class__.__name__
         return dict
