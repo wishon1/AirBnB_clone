@@ -142,6 +142,8 @@ class HBNBCommand(cmd.Cmd):
                                     if value.id == instance_obj[1] and value.__class__.__name__ == instance_obj[0]:
                                         type_cast = type(value[instance[2]])
                                         value.__dict__.update({instance_obj[2]: type_cast(instance_obj[3])})
+                                        break
+                                storage.save()
 
     def do_quit(self, arg):
         """ Quit command to exit the program"""
