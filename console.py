@@ -21,18 +21,21 @@ class HBNBCommand(cmd.Cmd):
         instance_obj = line.split(" ")
         if not line:
             print("** class name missing **")
-        elif instance_obj[0] not in HBNBCommand.project_classes:
-            print("** class doesn't exist **")
 
-        elif instance_obj[0] == "BaseModel":
-            new_instance = BaseModel()
+        else:
+            if instance_obj[0] not in HBNBCommand.project_classes:
+                print("** class doesn't exist **")
 
-        elif instance_obj[0] == "User":
-            new_instance = User()
+            else:
+                if instance_obj[0] == "BaseModel":
+                    new_instance = BaseModel()
 
-        # save the instance to json file
-        new_instance.save()
-        print(new_instance.id)
+                elif instance_obj[0] == "User":
+                    new_instance = User()
+
+                # save the instance to json file
+                new_instance.save()
+                print(new_instance.id)
 
     def do_show(self, line):
         """
