@@ -10,6 +10,8 @@ class User(BaseModel):
     first_name = ""
     last_name = ""
 
+    """
     def __init__(self, *args, **kwargs):
-        """ construct for the class user"""
+        construct for the class user
         super().__init__(*args, **kwargs)
+    """
