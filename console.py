@@ -23,17 +23,20 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif instance_obj[0] not in HBNBCommand.project_classes:
             print("** class doesn't exist **")
+
         elif instance_obj[0] == "BaseModel":
             new_instance = BaseModel()
+
         elif instance_obj[0] == "User":
             new_instance = User()
 
-            # save the instance to json file
-            new_instance.save()
-            print(new_instance.id)
+        # save the instance to json file
+        new_instance.save()
+        print(new_instance.id)
 
     def do_show(self, line):
-        """Prints the string representation of an instance based on the
+        """
+        Prints the string representation of an instance based on the
             class name and id
         """
         all_objec = storage.all()
@@ -168,7 +171,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, arg):
         """ Handle the end-of-file condition (Ctrl+D)"""
-        print()
+        print("")
         return True
 
     def emptyline(self):
