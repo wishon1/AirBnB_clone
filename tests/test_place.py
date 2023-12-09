@@ -3,6 +3,7 @@
 from models.place import Place
 import unittest
 
+
 class test_place(unittest.TestCase):
     """ test class for the amenity """
     def test_place_module(self):
