@@ -26,7 +26,8 @@ class FileStorage():
         FileStorage.__objects.update({element:obj})
 
     def save(self):
-        """  serializes __objects to the JSON file (path: __file_path)
+        """  
+        serializes __objects to the JSON file (path: __file_path)
         i created new_objects dictionary in different location becuase 
         when we iterate over __objects dictionary we will an error which
         is value has no to_dict method because that value will be dictionary no object

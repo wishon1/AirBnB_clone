@@ -6,6 +6,7 @@ import json
 from models import storage
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -24,6 +25,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif instance_obj[0] == "BaseModel":
             new_instance = BaseModel()
+        elif instance_obj[0] == "User":
+            new_instance = User()
 
             # save the instance to json file
             new_instance.save()
@@ -143,14 +146,19 @@ class HBNBCommand(cmd.Cmd):
 
                             else:
 
-                                for key, value in all_objects:
+                                for key, value in all_objects.items():
                                     name = value.__class__.__name__
                                     id_1 = value.id
+                                    di_1 = value.__dict__
                                     if id_1 == instance_obj[
                                             1] and name == instance_obj[0]:
-                                        type_cast = type(value[instance[2]])
-                                        value.__dict__.update({instance_obj[
-                                            2]: type_cast(instance_obj[3])})
+                                        if instance_obj[2] in di_1.keys():
+                                            cast = type(di_1[instance_obj[2]])
+                                            di_1.update({instance_obj[
+                                                2]: cast(instance_obj[3])})
+                                        else:
+                                            di_1.update({instance_obj[
+                                                2]: instance_obj[3]})
                                         break
                                 storage.save()
 

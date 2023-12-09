@@ -33,7 +33,7 @@ class BaseModel():
 
     def __str__(self):
         """ return the object in a specified format """
-        return "[{}] ({}) {}".format(__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """ 
@@ -52,5 +52,5 @@ class BaseModel():
         dict = self.__dict__.copy()
         dict["created_at"] = dict["created_at"].isoformat()
         dict["updated_at"] = dict["updated_at"].isoformat()
-        dict["__class__"] = __class__.__name__
+        dict["__class__"] = self.__class__.__name__
         return dict
