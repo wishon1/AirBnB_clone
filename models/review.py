@@ -4,7 +4,7 @@ from models.base_model import BaseModel
 
 
 class Review(BaseModel):
-    """ 
+    """
         class : Represents a review associated with a place
         Args: BaseModel
     """

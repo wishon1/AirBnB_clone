@@ -2,6 +2,7 @@
 """ class place that inherit from BaseModel"""
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
     """ class: place
         Args:
