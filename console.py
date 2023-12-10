@@ -28,6 +28,13 @@ class HBNBCommand(cmd.Cmd):
             "Amenity",
             "Review"]
 
+    def default(self, line):
+        """ default function for cmd interpter """
+        command = line.split(".")
+
+        if command[0] in HBNBCommand.project_classes:
+            self.do_all(command[0])
+
     def do_create(self, line):
         """create an instance of baseModel"""
         instance_obj = line.split(" ")
