@@ -7,6 +7,11 @@ from models import storage
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -14,8 +19,14 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
 
-    project_classes = ["User", "State", "City", "Place", "BaseModel,\
-                        Amenity, Review"]
+    project_classes = [
+            "User",
+            "State",
+            "City",
+            "Place",
+            "BaseModel",
+            "Amenity",
+            "Review"]
 
     def do_create(self, line):
         """create an instance of baseModel"""
@@ -30,17 +41,23 @@ class HBNBCommand(cmd.Cmd):
             else:
                 if instance_obj[0] == "BaseModel":
                     new_instance = BaseModel()
+
                 elif instance_obj[0] == "User":
                     new_instance = User()
+
                 elif instance_obj[0] == "City":
                     new_instance = City()
-                elif instance_obj = "State":
+
+                elif instance_obj[0] == "State":
                     new_instance = State()
-                elif instance_obj = "Place":
+
+                elif instance_obj[0] == "Place":
                     new_instance = Place()
-                elif instance_obj = "Review":
+
+                elif instance_obj[0] == "Review":
                     new_instance = Review()
-                elif instance_obj = "Amenity":
+
+                elif instance_obj[0] == "Amenity":
                     new_instance = Amenity()
 
                 # save the instance to json file
