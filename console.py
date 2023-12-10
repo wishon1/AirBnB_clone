@@ -53,14 +53,22 @@ class HBNBCommand(cmd.Cmd):
             class_name = command[0]
             id_1 = command[1].split("(")
             id_2 = id_1[1].split(")")
-            command_1 = "{} {}".format(class_name, id_2[0])
 
             if command[1].startswith("show(") and command[1].endswith(")"):
+                command_1 = "{} {}".format(class_name, id_2[0])
                 self.do_show(command_1)
 
             elif command[1].startswith("destroy(") and command[
                     1].endswith(")"):
+                command_1 = "{} {}".format(class_name, id_2[0])
                 self.do_destroy(command_1)
+
+            elif command[1].startswith("update(") and command[
+                    1].endswith(")"):
+                id_2 = id_2[0].split(",")
+                command_1 = f"{class_name} {id_2[0]}{id_2[1]}{id_2[2]}"
+                print(command_1)
+                self.do_update(command_1)
 
     def do_create(self, line):
         """create an instance of baseModel"""
