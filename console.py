@@ -30,6 +30,9 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, line):
         """ default function for cmd interpter """
+        if "\"" in line:
+            line = line.replace("\"", "")
+
         command = line.split(".")
         dictionary = storage.all()
         count = 0
@@ -44,18 +47,24 @@ class HBNBCommand(cmd.Cmd):
                 if value.__class__.__name__ == command[0]:
                     count = count + 1
             print(count)
-        # Update console.py to retrieve an instance based on its ID: 
+        # Update console.py to retrieve an instance based on its ID:
         # <class name>.show(<id>).
-        elif len(command) == 2:
+        elif command[0] in HBNBCommand.project_classes:
             if command[1].startswith("show(") and command[1].endswith(")"):
                 class_name = command[0]
+                id_1 = command[1].split("(")
+                id_2 = id_1[1].split(")")
+                command_1 = "{} {}".format(class_name, id_2[0])
+                self.do_show(command_1)
+                """
                 instance_id = command[1].strip("show(").strip(")")
                 instance_key = f"{class_name}.{instance_id}"
-                
+
                 if instance_key not in dictionary:
                     print("** no instance found **")
                 else:
                     print(dictionary[instance_key])
+                """
 
     def do_create(self, line):
         """create an instance of baseModel"""
