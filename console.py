@@ -50,12 +50,17 @@ class HBNBCommand(cmd.Cmd):
         # Update console.py to retrieve an instance based on its ID:
         # <class name>.show(<id>).
         elif command[0] in HBNBCommand.project_classes:
+            class_name = command[0]
+            id_1 = command[1].split("(")
+            id_2 = id_1[1].split(")")
+            command_1 = "{} {}".format(class_name, id_2[0])
+
             if command[1].startswith("show(") and command[1].endswith(")"):
-                class_name = command[0]
-                id_1 = command[1].split("(")
-                id_2 = id_1[1].split(")")
-                command_1 = "{} {}".format(class_name, id_2[0])
                 self.do_show(command_1)
+
+            elif command[1].startswith("destroy(") and command[
+                    1].endswith(")"):
+                self.do_destroy(command_1)
 
     def do_create(self, line):
         """create an instance of baseModel"""
