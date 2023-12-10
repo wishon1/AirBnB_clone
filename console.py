@@ -56,15 +56,6 @@ class HBNBCommand(cmd.Cmd):
                 id_2 = id_1[1].split(")")
                 command_1 = "{} {}".format(class_name, id_2[0])
                 self.do_show(command_1)
-                """
-                instance_id = command[1].strip("show(").strip(")")
-                instance_key = f"{class_name}.{instance_id}"
-
-                if instance_key not in dictionary:
-                    print("** no instance found **")
-                else:
-                    print(dictionary[instance_key])
-                """
 
     def do_create(self, line):
         """create an instance of baseModel"""
