@@ -62,16 +62,22 @@ class FileStorage():
                     name_class = value["__class__"]
                     if name_class == "User":
                         model = User(**value)
+
                     elif name_class == "Place":
                         model = Place(**value)
+
                     elif name_class == "State":
                         model = State(**value)
+
                     elif name_class == "City":
                         model = City(**value)
+
                     elif name_class == "Amenity":
                         model = Amenity(**value)
+
                     elif name_class == "Review":
                         model = Review(**value)
+
                     else:
                         model = BaseModel(**value)
 

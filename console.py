@@ -31,9 +31,19 @@ class HBNBCommand(cmd.Cmd):
     def default(self, line):
         """ default function for cmd interpter """
         command = line.split(".")
+        dictionary = storage.all()
+        count = 0
 
-        if command[0] in HBNBCommand.project_classes:
+        if command[0] in HBNBCommand.project_classes and command[1] == "all()":
             self.do_all(command[0])
+
+        elif command[0] in HBNBCommand.project_classes and command[
+                1] == "count()":
+
+            for key, value in dictionary.items():
+                if value.__class__.__name__ == command[0]:
+                    count = count + 1
+            print(count)
 
     def do_create(self, line):
         """create an instance of baseModel"""
