@@ -44,6 +44,21 @@ class HBNBCommand(cmd.Cmd):
                 if value.__class__.__name__ == command[0]:
                     count = count + 1
             print(count)
+        # Update console.py to retrieve an instance based on its ID: 
+        # <class name>.show(<id>).
+        elif len(command) == 2:
+            if command[1].startswith("show(") and command[1].endswith(")"):
+                instance_id = command[1].strip("show(").strip(")".split()
+                class_name = command[0]
+                obj_id = instance_id[0]
+            
+                # concatenate the user with the id
+                class_id = class_name + "." + obj_id
+                
+                if class_id not in dictionary:
+                    print("** no instance found **")
+                else:
+                    print(dictionary[class_id])
 
     def do_create(self, line):
         """create an instance of baseModel"""
