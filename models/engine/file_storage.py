@@ -54,12 +54,25 @@ class FileStorage():
         if os.path.isfile(FileStorage.__file_path) is False:
             return
         else:
+            obj = {}
             with open(FileStorage.__file_path, "r", encoding="utf-8") as file:
                 obj = json.load(file)
-            for key, value in obj.items():
-                name_class = obj[key]["__class__"]
-                if name_class == "User":
-                    model = User(**obj[key])
-                else:
-                    model = BaseModel(**obj[key])
-                FileStorage.__objects[key] = model
+
+                for key, value in obj.items():
+                    name_class = value["__class__"]
+                    if name_class == "User":
+                        model = User(**value)
+                    elif name_class == "Place":
+                        model = Place(**value)
+                    elif name_class == "State":
+                        model = State(**value)
+                    elif name_class == "City":
+                        model = City(**value)
+                    elif name_class == "Amenity":
+                        model = Amenity(**value)
+                    elif name_class == "Review":
+                        model = Review(**value)
+                    else:
+                        model = BaseModel(**value)
+
+                    FileStorage.__objects[key] = model

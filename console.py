@@ -14,7 +14,8 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
 
-    project_classes = ["User", "State", "City", "Place", "BaseModel"]
+    project_classes = ["User", "State", "City", "Place", "BaseModel,\
+                        Amenity, Review"]
 
     def do_create(self, line):
         """create an instance of baseModel"""
@@ -29,9 +30,18 @@ class HBNBCommand(cmd.Cmd):
             else:
                 if instance_obj[0] == "BaseModel":
                     new_instance = BaseModel()
-
                 elif instance_obj[0] == "User":
                     new_instance = User()
+                elif instance_obj[0] == "City":
+                    new_instance = City()
+                elif instance_obj = "State":
+                    new_instance = State()
+                elif instance_obj = "Place":
+                    new_instance = Place()
+                elif instance_obj = "Review":
+                    new_instance = Review()
+                elif instance_obj = "Amenity":
+                    new_instance = Amenity()
 
                 # save the instance to json file
                 new_instance.save()
