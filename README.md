@@ -1,7 +1,10 @@
 * 0x01. AirBnB clone - Web static
 + HTML
 + CSS
-
+==========================================================================
+NOTE: The project entails the addition of a frontend features to the project
+      with the application of HTML and CSS
+==========================================================================
 * Resources
 + Read or watch:
 + [Learn to Code HTML & CSS](https://learn.shayhowe.com/html-css/) (until “Creating Lists” included)
