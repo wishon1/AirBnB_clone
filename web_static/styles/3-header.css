@@ -1,0 +1,16 @@
+header {
+background-color: white;
+height: 7px;
+width: 100%;
+border-bottom: 1px solid #CCCCCC;
+justify-content: flex-start;
+display: flex;
+
+#first_logo {
+background-image: url("../images/first_logo.png");
+height: 100px;
+width: 140;
+background-repeat: no-repeat;
+margin-left: 20px;
+background-position: center;
+}
