@@ -1,16 +1,19 @@
 header {
-background-color: white;
-height: 7px;
-width: 100%;
-border-bottom: 1px solid #CCCCCC;
-justify-content: flex-start;
-display: flex;
+	background-color: white;
+	height: 70px;
+	width: 100%;
+	
+	border-bottom: 1px solid #CCCCCC;
+    border-radius: 4px;
+}
 
 #first_logo {
-background-image: url("../images/first_logo.png");
-height: 100px;
-width: 140;
-background-repeat: no-repeat;
-margin-left: 20px;
-background-position: center;
+	height: 100%;
+	width: 142px;
+
+	background-image: url("../images/first_logo.png");
+	background-repeat: no-repeat;
+	background-position: center;
+
+	margin-left: 20px;
 }
