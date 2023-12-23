@@ -11,7 +11,7 @@ border-style: none;
 position: absolute;
 top: 50%;
 transform: translateY(-50);
-right: 50px;
+right: 0;
 
 /* Change opacity to 90% when the mouse is on the button */
 opacity: 1.0;
@@ -27,5 +27,4 @@ height: 70px;
 width: 100%;
 border 1px solid #DDDDDD;
 border-radius: 4px;
-align-items: right;
 }
