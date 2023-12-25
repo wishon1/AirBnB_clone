@@ -1,0 +1,36 @@
+.places > article {
+width: 390px;
+padding: 20px;
+margin: 20px;
+border: #FF5A5F solid 1px;
+border-radius: 4px;
+justify-content: center;
+display: flex;
+}
+
+.places {
+width: 100%;
+justify-content: center;
+border: 0px;
+flex-wrap: wrap;
+flex-direction: row;
+display: flex;
+}
+
+.places > h1 {
+font-size: 30px;
+margin: 20px 0 0;
+padding-left: 20px;
+padding-top: 20px;
+margin-bottom: 0px;
+flex: 0 1 100%;
+}
+
+.mul_places {
+display: flex;
+text-wrap: wrap;
+}
+
+.places > article > h2 {
+font-size: 30px;
+}
